@@ -1,10 +1,11 @@
 1. Set Up  Environment
 Install Dependencies:
    pip install selenium pytest pytest-selenium
-Download WebDriver:
+   
+2. Download WebDriver:
 Download the appropriate WebDriver for your browser (e.g., ChromeDriver for Chrome) and ensure it's in your system's PATH.
 
-2. Execute the tests using Pytest:
+4. Execute the tests using Pytest:
    pytest --maxfail=1 --disable-warnings -q
 
 
