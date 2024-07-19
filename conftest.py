@@ -1,10 +1,13 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture(scope="function")
-def driver():
-    # Initialize WebDriver
-    driver = webdriver.Chrome()  # or webdriver.Firefox() for Firefox
-    driver.implicitly_wait(10)  # Wait for elements to be available
+def browser():
+    options = Options()
+    options.add_argument("--headless") 
+    service = ChromeService(executable_path="chromedriver_path")  
+    driver = webdriver.Chrome(service=service, options=options)
     yield driver
-    driver.quit()  # Clean up and close browser after test
+    driver.quit()
